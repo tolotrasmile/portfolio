@@ -1,6 +1,7 @@
 footer.footer {
   padding: 1em;
   text-align: right;
+  display: flex;
 }
 
 .social {
@@ -14,6 +15,6 @@ footer.footer {
   cursor: pointer;
 }
 
-.social path:hover {
+.social:hover {
   fill: yellowgreen;
 }
