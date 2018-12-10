@@ -1,20 +1,20 @@
-import React, { useContext } from 'react';
-import './ThemeSwitcher.css';
-import ThemeContext from './Theme';
+import React, { useContext } from 'react'
+import './ThemeSwitcher.css'
+import ThemeContext from './Theme'
 
-function ThemeSwitcher({ setTheme, theme: { key } }) {
-  const theme = useContext(ThemeContext);
+function ThemeSwitcher() {
+  const { key, switchTheme } = useContext(ThemeContext)
   return (
-    <div className="ThemeSwitcher" style={{ backgroundColor: theme.primary }}>
+    <div className="ThemeSwitcher">
       <div
-        onClick={() => setTheme('light')}
-        className={`light ${theme.key === 'light' ? 'active' : ''}`}
+        onClick={() => switchTheme('light')}
+        className={`light ${key === 'light' ? 'active' : ''}`}
       />
       <div
-        onClick={() => setTheme('dark')}
-        className={`dark ${theme.key === 'dark' ? 'active' : ''}`}
+        onClick={() => switchTheme('dark')}
+        className={`dark ${key === 'dark' ? 'active' : ''}`}
       />
     </div>
-  );
+  )
 }
-export default ThemeSwitcher;
+export default ThemeSwitcher
