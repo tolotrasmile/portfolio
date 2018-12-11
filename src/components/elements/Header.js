@@ -1,32 +1,39 @@
-import React, { useState, useContext } from 'react';
-import { navigate } from '@reach/router';
-import pages from '../../pages';
-import ThemeContext from '../../contexts/Theme';
-import './Header.css';
+import React, { useState, useContext } from 'react'
+import { navigate } from '@reach/router'
+import pages from '../../pages'
+import ThemeContext from '../../contexts/Theme'
+import './Header.css'
 
-function MenuLink({ active, children, color, foreground, ...props }) {
+function MenuLink({
+  active,
+  children,
+  color,
+  foreground,
+  switchTheme,
+  ...props
+}) {
   return (
     <li
       {...props}
       className={active ? 'active' : ''}
       style={{
         borderColor: active ? color : 'transparent',
-        color: foreground
+        color: foreground,
       }}
     >
       {children}
     </li>
-  );
+  )
 }
 
 function Header() {
-  const [activeLink, setActiveLink] = useState(window.location.pathname);
+  const [activeLink, setActiveLink] = useState(window.location.pathname)
 
-  const theme = useContext(ThemeContext);
+  const theme = useContext(ThemeContext)
 
   function goTo(path) {
-    navigate(path);
-    setActiveLink(path);
+    navigate(path)
+    setActiveLink(path)
   }
 
   return (
@@ -47,7 +54,7 @@ function Header() {
         ))}
       </ul>
     </nav>
-  );
+  )
 }
 
-export default Header;
+export default Header

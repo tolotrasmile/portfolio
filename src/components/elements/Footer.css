@@ -2,6 +2,11 @@ footer.footer {
   padding: 1em;
   text-align: right;
   display: flex;
+  justify-content: space-between;
+}
+
+.social-icons {
+  display: flex;
 }
 
 .social {
@@ -15,6 +20,6 @@ footer.footer {
   cursor: pointer;
 }
 
-.social:hover {
+.social path:hover {
   fill: yellowgreen;
 }
