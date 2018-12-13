@@ -1,26 +1,16 @@
-import React, { Suspense, lazy } from 'react';
-import { Router } from '@reach/router';
-import ThemeContext, { themes } from './contexts/Theme';
-import { useBodyColor, useLocalStorageState } from './hooks';
-import Header from './components/elements/Header';
-import Footer from './components/elements/Footer';
-import pages from './pages';
-import './App.css';
+import React, { Suspense, lazy } from 'react'
+import { Router } from '@reach/router'
+import ThemeContext from './contexts/Theme'
+import { useTheme } from './hooks'
+import Header from './components/elements/Header'
+import Footer from './components/elements/Footer'
+import pages from './pages'
+import './App.css'
 
-const Page = lazy(() => import('./components/pages/Item'));
+const Page = lazy(() => import('./components/pages/Item'))
 
 function App() {
-  const [theme, setTheme] = useLocalStorageState('portfolio:theme', 'dark');
-  function switchTheme(newTheme) {
-    setTheme(previousTheme => {
-      return previousTheme.key !== newTheme
-        ? { key: newTheme, ...(newTheme === 'dark' ? themes.dark : themes.light) }
-        : { ...previousTheme };
-    });
-  }
-
-  useBodyColor(theme)
-
+  const [theme, switchTheme] = useTheme()
   return (
     <ThemeContext.Provider value={{ ...theme, switchTheme }}>
       <div className="app">
