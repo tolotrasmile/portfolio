@@ -4,7 +4,7 @@ import pages from '../../pages';
 import ThemeContext from '../../contexts/Theme';
 import './Header.css';
 
-function MenuLink({ active, children, color, foreground, ...props }) {
+function MenuLink({ active, children, color, foreground, switchTheme, ...props }) {
   return (
     <li
       {...props}

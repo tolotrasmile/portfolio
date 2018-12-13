@@ -3,16 +3,19 @@ import './ThemeSwitcher.css'
 import ThemeContext from './Theme'
 
 function ThemeSwitcher() {
-  const { key, switchTheme } = useContext(ThemeContext)
+  const { key, switchTheme, primary } = useContext(ThemeContext);
+
   return (
     <div className="ThemeSwitcher">
       <div
         onClick={() => switchTheme('light')}
-        className={`light ${key === 'light' ? 'active' : ''}`}
+        className="light"
+        style={{ borderColor: key === 'light' ? primary : 'transparent' }}
       />
       <div
         onClick={() => switchTheme('dark')}
-        className={`dark ${key === 'dark' ? 'active' : ''}`}
+        className="dark"
+        style={{ borderColor: key === 'dark' ? primary : 'transparent' }}
       />
     </div>
   )

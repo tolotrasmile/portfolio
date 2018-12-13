@@ -1,43 +1,22 @@
-import React, { useEffect, useState, Suspense, lazy } from 'react'
-import Header from './components/elements/Header'
-import Footer from './components/elements/Footer'
-import { Router } from '@reach/router'
-import pages from './pages'
-import './App.css'
-import ThemeContext, { themes } from './contexts/Theme'
+import React, { Suspense, lazy } from 'react';
+import { Router } from '@reach/router';
+import ThemeContext, { themes } from './contexts/Theme';
+import { useBodyColor, useLocalStorageState } from './hooks';
+import Header from './components/elements/Header';
+import Footer from './components/elements/Footer';
+import pages from './pages';
+import './App.css';
 
-const Page = lazy(() => import('./components/pages/Item'))
-
-function useBodyColor(previousColors) {
-  useEffect(
-    () => {
-      document.body.style.background = previousColors.background
-      document.body.style.color = previousColors.foreground
-    },
-    [previousColors],
-  )
-}
+const Page = lazy(() => import('./components/pages/Item'));
 
 function App() {
-  const localTheme = JSON.parse(window.localStorage.getItem('theme'))
-  const [theme, setTheme] = useState(localTheme || themes.dark)
-  function switchTheme(t) {
-    setTheme(prev => {
-      if (prev.key !== t) {
-        let theme = t === 'dark' ? themes.dark : themes.light
-        try {
-          window.localStorage.setItem(
-            'theme',
-            JSON.stringify({ key: t, ...theme }),
-          )
-        } catch (error) {
-          // prevent error printing
-        }
-
-        return { key: t, ...theme }
-      }
-      return { ...prev }
-    })
+  const [theme, setTheme] = useLocalStorageState('portfolio:theme', 'dark');
+  function switchTheme(newTheme) {
+    setTheme(previousTheme => {
+      return previousTheme.key !== newTheme
+        ? { key: newTheme, ...(newTheme === 'dark' ? themes.dark : themes.light) }
+        : { ...previousTheme };
+    });
   }
 
   useBodyColor(theme)
