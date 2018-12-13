@@ -1,7 +1,7 @@
-import React from 'react'
-import ThemeSwitcher from '../../contexts/ThemeSwitcher'
-import Icon from '../../icons/Icon'
-import './Footer.css'
+import React from 'react';
+import ThemeSwitcher from '../../contexts/ThemeSwitcher';
+import Icon from '../../icons/Icon';
+import './Footer.css';
 
 export default () => {
   return (
@@ -14,5 +14,5 @@ export default () => {
         <Icon name="facebook" />
       </div>
     </footer>
-  )
-}
+  );
+};

@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
-import './ThemeSwitcher.css'
-import ThemeContext from './Theme'
+import React, { useContext } from 'react';
+import './ThemeSwitcher.css';
+import ThemeContext from './Theme';
 
 function ThemeSwitcher() {
   const { key, switchTheme, primary } = useContext(ThemeContext);
@@ -18,6 +18,6 @@ function ThemeSwitcher() {
         style={{ borderColor: key === 'dark' ? primary : 'transparent' }}
       />
     </div>
-  )
+  );
 }
-export default ThemeSwitcher
+export default ThemeSwitcher;

@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
-import ThemeContext from '../contexts/Theme'
-import icons from './icons'
+import React, { useContext } from 'react';
+import ThemeContext from '../contexts/Theme';
+import icons from './icons';
 
 export default function({ name }) {
-  const { d, viewBox } = icons[name]
-  const { primary } = useContext(ThemeContext)
+  const { d, viewBox } = icons[name];
+  const { primary } = useContext(ThemeContext);
 
   const style = {
     width: 30,
@@ -12,7 +12,7 @@ export default function({ name }) {
     padding: '0.5em',
     color: primary,
     fill: primary
-  }
+  };
 
   return (
     <div className="social" style={style}>
@@ -22,5 +22,5 @@ export default function({ name }) {
         </g>
       </svg>
     </div>
-  )
+  );
 }

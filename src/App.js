@@ -1,16 +1,16 @@
-import React, { Suspense, lazy } from 'react'
-import { Router } from '@reach/router'
-import ThemeContext from './contexts/Theme'
-import { useTheme } from './hooks'
-import Header from './components/elements/Header'
-import Footer from './components/elements/Footer'
-import pages from './pages'
-import './App.css'
+import React, { Suspense, lazy } from 'react';
+import { Router } from '@reach/router';
+import ThemeContext from './contexts/Theme';
+import { useTheme } from './hooks';
+import Header from './components/elements/Header';
+import Footer from './components/elements/Footer';
+import pages from './pages';
+import './App.css';
 
-const Page = lazy(() => import('./components/pages/Item'))
+const Page = lazy(() => import('./components/pages/Item'));
 
 function App() {
-  const [theme, switchTheme] = useTheme()
+  const [theme, switchTheme] = useTheme();
   return (
     <ThemeContext.Provider value={{ ...theme, switchTheme }}>
       <div className="app">
@@ -27,7 +27,7 @@ function App() {
         <Footer />
       </div>
     </ThemeContext.Provider>
-  )
+  );
 }
 
-export default App
+export default App;

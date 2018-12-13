@@ -4,14 +4,14 @@ import pages from '../../pages';
 import ThemeContext from '../../contexts/Theme';
 import './Header.css';
 
-function MenuLink({ active, children, color, foreground, switchTheme, ...props }) {
+function MenuLink({ active, children, borderColor, color, ...props }) {
   return (
     <li
       {...props}
       className={active ? 'active' : ''}
       style={{
-        borderColor: active ? color : 'transparent',
-        color: foreground
+        borderColor: active ? borderColor : 'transparent',
+        color
       }}
     >
       {children}
@@ -39,7 +39,8 @@ function Header() {
           <MenuLink
             active={activeLink === page.path}
             onClick={() => goTo(page.path)}
-            {...theme}
+            borderColor={theme.primary}
+            color={theme.foreground}
             key={index}
           >
             {page.title}
