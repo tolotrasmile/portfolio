@@ -4,7 +4,7 @@ export const themes = {
   light: {
     foreground: 'black',
     background: 'white',
-    primary: 'yellowgreen',
+    primary: '#E30335',
     name: 'light'
   },
   dark: {
@@ -14,15 +14,15 @@ export const themes = {
     name: 'dark'
   },
   blue: {
-    foreground: '#AA00FF',
-    background: '#00AAFF',
-    primary: 'yellowgreen',
+    foreground: 'white',
+    background: '#EC4B51',
+    primary: '#F1E15E',
     name: 'blue'
   },
-  red: {
-    foreground: 'white',
-    background: 'darkgrey',
-    primary: 'yellowgreen',
+  vintage: {
+    foreground: 'black',
+    background: '#EBE5D7',
+    primary: '#ED1D2F',
     name: 'red'
   }
 };

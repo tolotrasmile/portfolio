@@ -12,7 +12,7 @@ function ThemeSwitcher() {
           onClick={() => switchTheme(name)}
           className="light"
           style={{
-            backgroundColor: theme.primary,
+            backgroundColor: theme.background,
             borderColor: current === name ? primary : 'transparent',
             marginRight: 5
           }}

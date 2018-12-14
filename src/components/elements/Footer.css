@@ -12,11 +12,10 @@ footer.footer {
 .social {
   width: 50;
   height: 50;
-  opacity: 0.5;
-  transition: opacity 0.5s ease-in;
+  transition: transform 0.2s ease-in;
   cursor: pointer;
 }
 
 .social:hover {
-  opacity: 1;
+  transform: scale(1.3);
 }
