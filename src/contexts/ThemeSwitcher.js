@@ -1,22 +1,23 @@
 import React, { useContext } from 'react';
 import './ThemeSwitcher.css';
-import ThemeContext from './Theme';
+import ThemeContext, { themes } from './Theme';
 
 function ThemeSwitcher() {
-  const { key, switchTheme, primary } = useContext(ThemeContext);
-
+  const { current, switchTheme, primary } = useContext(ThemeContext);
   return (
     <div className="ThemeSwitcher">
-      <div
-        onClick={() => switchTheme('light')}
-        className="light"
-        style={{ borderColor: key === 'light' ? primary : 'transparent' }}
-      />
-      <div
-        onClick={() => switchTheme('dark')}
-        className="dark"
-        style={{ borderColor: key === 'dark' ? primary : 'transparent' }}
-      />
+      {Object.entries(themes).map(([name, theme], index) => (
+        <div
+          key={index}
+          onClick={() => switchTheme(name)}
+          className="light"
+          style={{
+            backgroundColor: theme.primary,
+            borderColor: current === name ? primary : 'transparent',
+            marginRight: 5
+          }}
+        />
+      ))}
     </div>
   );
 }

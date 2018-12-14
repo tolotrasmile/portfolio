@@ -12,18 +12,13 @@ export function useBodyColor(previousColors) {
 }
 
 export function useTheme(defaultTheme = 'dark') {
-  const [theme, setTheme] = useLocalStorageState(
-    'portfolio:theme',
-    defaultTheme
-  );
+  const [theme, setTheme] = useLocalStorageState('portfolio:theme', defaultTheme);
   function switchTheme(newTheme) {
     setTheme(previousTheme => {
-      return previousTheme.key !== newTheme
-        ? {
-            key: newTheme,
-            ...(newTheme === 'dark' ? themes.dark : themes.light)
-          }
-        : { ...previousTheme };
+      return {
+        current: newTheme,
+        ...themes[newTheme]
+      };
     });
   }
   useBodyColor(theme);
