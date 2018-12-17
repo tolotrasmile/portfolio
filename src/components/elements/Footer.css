@@ -12,7 +12,7 @@ footer.footer {
 .social {
   width: 50;
   height: 50;
-  transition: transform 0.2s ease-in;
+  transition: all 0.3s ease-in;
   cursor: pointer;
 }
 

@@ -14,7 +14,7 @@ function ThemeSwitcher() {
           style={{
             backgroundColor: theme.background,
             borderColor: current === name ? primary : 'transparent',
-            marginRight: 5
+            marginRight: 8
           }}
         />
       ))}
